@@ -1,7 +1,7 @@
 pipeline {
     agent { 
         dockerContainer {
-            image 'growerp/flutter-sdk-image:3.19.0'
+            image 'growerp/flutter-sdk-image'
         }
       }
     triggers {
