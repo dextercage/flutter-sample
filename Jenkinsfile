@@ -15,12 +15,13 @@ pipeline {
         } 
         stage('Build'){
             steps{
-                sh"flutter build apk"
+                sh"pwd && ls -larth && flutter build apk"
             }
         }
         stage('Upload'){
             steps{
-                sh"Uploading the apk file to the server..."
+                echo "Uploading the apk file to the server..."
+                sh"pwd && ls -larth"
             }
         } 
     }
