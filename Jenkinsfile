@@ -1,6 +1,8 @@
 pipeline {
     agent { 
+        docker {
             label 'maven'
+        }
       }
     triggers {
         pollSCM '*/3 * * * *'
