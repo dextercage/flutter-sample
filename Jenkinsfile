@@ -1,7 +1,7 @@
 pipeline {
     agent { 
-        docker {
-            label 'maven'
+        dockerContainer {
+            label 'flutter'
         }
       }
     triggers {
