@@ -1,10 +1,21 @@
-pipeline{
-    //This line is to tell Jenkins which agent should run the pipeline
-    agent { label 'flutter' } 
+pipeline {
+    agent { 
+        node {
+            label 'flutter'
+            }
+      }
+    triggers {
+        pollSCM '*/3 * * * *'
+    }
     stages{
-        stage('Fetch'){ 
+        stage ('Flutter Doctor') {
+            steps {
+                sh "flutter doctor -v"
+            }
+        }
+        stage('Get Dependencies'){ 
             steps{
-                sh"${env.SOURCE}; flutter pub get" 
+                sh"flutter pub get" 
             }
         } 
         stage('Build'){
