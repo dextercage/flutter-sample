@@ -8,11 +8,6 @@ pipeline {
         pollSCM '*/3 * * * *'
     }
     stages{
-        stage ('Flutter Doctor') {
-            steps {
-                sh "flutter doctor -v"
-            }
-        }
         stage('Get Dependencies'){ 
             steps{
                 sh"flutter pub get" 
@@ -20,7 +15,7 @@ pipeline {
         } 
         stage('Build'){
             steps{
-                sh"${env.SOURCE}; flutter build apk --release --no-sound-null-safety"
+                sh"flutter build apk"
             }
         }
         stage('Upload'){
